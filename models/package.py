@@ -10,7 +10,6 @@ if TYPE_CHECKING:
 class Package:
     def __init__(self, owner: Person):
         self._owner: Person = owner
-        self.delivered: bool = False
         self._flight: Optional[Flight] = None
 
     @property
