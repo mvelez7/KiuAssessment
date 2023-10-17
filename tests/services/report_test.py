@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from services import report_service, flight_service, package_service
+from services import report_service
 
 
 def test_package_report_mocked_db(mocker):
@@ -10,8 +10,8 @@ def test_package_report_mocked_db(mocker):
                                                         mocker.MagicMock(),
                                                         mocker.MagicMock()])
 
-    report_1 = report_service.packages_report(report_date)
+    report_1 = report_service.create_packages_transport_report_on_date(report_date)
 
     mocked_packages_finder.assert_called_with(report_date)
-    assert report_1.total_packages == 3
-    assert report_1.profits == 3 * report_service.PROFIT_PER_PACKAGE
+    assert report_1.total_transported_packages() == 3
+    assert report_1.profits() == 3 * report_service.PROFIT_PER_PACKAGE

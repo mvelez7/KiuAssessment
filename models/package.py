@@ -11,6 +11,7 @@ class Package:
     def __init__(self, owner: Person):
         self._owner: Person = owner
         self._flight: Optional[Flight] = None
+        self.id: int = -1
 
     @property
     def owner(self) -> Person:

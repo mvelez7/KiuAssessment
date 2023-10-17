@@ -7,9 +7,6 @@ from models import db
 from models.package import Package
 
 
-logger = logging.getLogger()
-
-
 PROFIT_PER_PACKAGE: Final[int] = 10
 
 
@@ -32,9 +29,16 @@ class PackageTransportReport:
         return self.__repr__()
 
 
-def packages_report(on: datetime.date) -> PackageTransportReport:
+def create_packages_transport_report_on_date(on: datetime.date) -> PackageTransportReport:
+    """
+    Generates a simple package transport report of a specific date.
+
+    It only logs the total of packages transported on the date, and the profits earned by the company.
+    But all the information (clients, flight, locations) should be accessible in the PackageTransportReport object
+    in case more details are needed.
+    """
     transported_packages: List[Package] = db.find_all_transported_packages_on(on)
     report = PackageTransportReport(on, transported_packages)
 
-    logger.info(f'Packages transport report: {report}')
+    logging.info(f'Packages transport report: {report}')
     return report
