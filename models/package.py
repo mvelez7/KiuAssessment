@@ -24,3 +24,9 @@ class Package:
     @flight.setter
     def flight(self, flight: Flight):
         self._flight = flight
+
+    def __repr__(self) -> str:
+        return f"Package#{self.id}"
+
+    def __str__(self) -> str:
+        return self.__repr__()

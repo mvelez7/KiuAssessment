@@ -20,3 +20,9 @@ class Flight:
         Transport a package on this flight
         """
         package.flight = self
+
+    def __repr__(self) -> str:
+        return f"Flight#{self.id}@{self.origin} -> {self.destination}"
+
+    def __str__(self) -> str:
+        return self.__repr__()
