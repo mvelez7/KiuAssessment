@@ -26,7 +26,7 @@ class Package:
         self._flight = flight
 
     def __repr__(self) -> str:
-        return f"Package#{self.id}"
+        return f"Package#{self.id}@{self.owner}"
 
     def __str__(self) -> str:
         return self.__repr__()

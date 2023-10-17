@@ -31,7 +31,7 @@ class DummyDB:
 
     def find_all_transported_packages_on(self, on: datetime) -> List[Package]:
         """
-        Method to find all the packages transported on an specific date
+        Method to find all the packages transported on a specific date
         """
         return [package for package in self.all_packages if package.flight.on == on]
 

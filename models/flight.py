@@ -22,7 +22,7 @@ class Flight:
         package.flight = self
 
     def __repr__(self) -> str:
-        return f"Flight#{self.id}@{self.origin} -> {self.destination}"
+        return f"Flight#{self.id} @ {self.origin} -> {self.destination}"
 
     def __str__(self) -> str:
         return self.__repr__()
