@@ -1,10 +1,11 @@
 import logging
 from datetime import datetime
-from typing import List, Final
 from dataclasses import dataclass
 from collections import defaultdict
+from typing import List, Final, Dict
 
 from models import db
+from models.flight import Flight
 from models.package import Package
 
 
@@ -27,7 +28,7 @@ class PackageTransportReport:
         Log more details about the packages information (locations, owners, flights)
         """
         logging.info(f'A total of {len(self.packages)} packages were transported on {self.date}')
-        flight_2_packages = defaultdict(list)
+        flight_2_packages: Dict[Flight, List[Package]] = defaultdict(list)
         for package in self.packages:
             flight_2_packages[package.flight].append(package)
 
